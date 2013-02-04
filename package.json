@@ -1,0 +1,22 @@
+{
+  "name": "image-scraper",
+  "version": "0.0.1",
+  "description": "scrape images from website using node.js",
+  "private": true,
+  "main" : "app.coffee",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/d48/node-image-scraper"
+  },
+  "dependencies" : {
+    "scraper" : "0.0.9",
+    "coffee-script": "1.4.0"
+  },
+  "keywords": [
+    "node",
+    "image",
+    "scraper"
+  ],
+  "author": "Ryan Regalado",
+  "license": "MIT"
+}
