@@ -12,10 +12,9 @@ exec = require('child_process').exec
 log = console.log
 
 config =
-  scrapeUrl: 'http://www.daviddownton.com/latest-news-2009.html'
-  baseUrl: 'http://www.daviddownton.com/'
-  imgSelector: '.inner-wrapper-content img'
-  saveDir: './images-2009'
+  scrapeUrl: 'http://www.crispbranding.net/clientcomps/view/2ie6eH3eh2e1nnHetc2cN8ck6c3'
+  imgSelector: '.pic-item img'
+  saveDir: './images-xfx'
 
 
 # ####################################################
@@ -25,11 +24,13 @@ scraper config.scrapeUrl, (err, $) ->
   if err
     throw err
 
-  baseUrl = config.baseUrl
+  uBits = config.scrapeUrl
+  uBits = uBits.split '/'
+  baseUrl = uBits[0] + '//:' + uBits[2]
 
   $(config.imgSelector).each ->
     url = baseUrl + $(this).attr('src')
     log "getting #{url}"
-    exec "( cd #{config.saveDir} && curl -O #{url} )" 
+    exec "( mkdir #{config.saveDir} && cd #{config.saveDir} && curl -O #{url} )" 
 
   exec "echo done; exit 1"
