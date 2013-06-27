@@ -22,7 +22,7 @@ $ coffee app.coffee
 ## Todo
 
 1. Move config to command line, making this a cli tool that can be updated with passed in options
-~~ 2. Pull `baseUrl` from `scrapeUrl` variable ~~
+2. ~~Pull `baseUrl` from `scrapeUrl` variable~~
 
 
 ## License
