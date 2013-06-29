@@ -26,11 +26,12 @@ scraper config.scrapeUrl, (err, $) ->
 
   uBits = config.scrapeUrl
   uBits = uBits.split '/'
-  baseUrl = uBits[0] + '//:' + uBits[2]
+  baseUrl = uBits[0] + '//' + uBits[2]
 
+  # @todo fix mkdir check and cd into if not already in the saveDir
   $(config.imgSelector).each ->
     url = baseUrl + $(this).attr('src')
     log "getting #{url}"
-    exec "( mkdir #{config.saveDir} && cd #{config.saveDir} && curl -O #{url} )" 
+    exec "( cd #{config.saveDir} && curl -O #{url} )" 
 
   exec "echo done; exit 1"
